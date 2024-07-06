@@ -223,3 +223,8 @@ h1 {
 .list-group-item .delete-btn:hover {
     background-color: #d32f2f;
 }
+
+.checked {
+    text-decoration: line-through;
+    color: #757575;
+}
