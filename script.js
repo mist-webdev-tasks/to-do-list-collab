@@ -1,71 +1,58 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // Task management
-    const newtaskbtn = document.querySelector("#newtaskbutton");
-    const newtaskInput = document.getElementById("newtask");
-    const taskList = document.querySelector(".task-box");
+    let newtaskbtn = document.querySelector("#newtaskbutton");
+    let newtaskinput = document.getElementById("newtask");
 
-    // Function to add a new task
-    function addTask(taskText) {
-        const item = document.createElement("li");
-        item.className = "list-group-item";
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "form-check-input me-2";
-
-        const taskSpan = document.createElement("span");
-        taskSpan.className = "task-text";
-        taskSpan.innerText = taskText;
-
-        const deleteBtn = document.createElement("button");
-        deleteBtn.className = "delete-btn btn btn-danger ms-2";
-        deleteBtn.innerText = "Delete";
-        deleteBtn.disabled = true;
-
-        // Event listener for checkbox change
-        checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                taskSpan.classList.add("checked");
-                deleteBtn.disabled = false;
-            } else {
-                taskSpan.classList.remove("checked");
-                deleteBtn.disabled = true;
-            }
-        });
-
-        // Event listener for delete button
-        deleteBtn.onclick = () => {
-            item.remove();
-        };
-
-        // Append elements to task item
-        item.appendChild(checkbox);
-        item.appendChild(taskSpan);
-        item.appendChild(deleteBtn);
-
-        taskList.appendChild(item);
-
-        newtaskInput.value = "";
-        newtaskInput.placeholder = "enter next task...";
-    }
-
-    // Add task on button click
-    newtaskbtn.onclick = () => {
-        const newTaskText = newtaskInput.value.trim();
-        if (newTaskText !== "") {
-            addTask(newTaskText);
-        }
-    };
-
-    // Add task on Enter key press
-    newtaskInput.addEventListener('keypress', (e) => {
+    newtaskbtn.onclick = addTask;
+    newtaskinput.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
-            const newTaskText = newtaskInput.value.trim();
-            if (newTaskText !== "") {
-                addTask(newTaskText);
-            }
+            addTask();
         }
     });
+
+    function addTask() {
+        var newTask = newtaskinput.value.trim();
+        if (newTask !== "") {
+            var item = document.createElement("li");
+            item.className = "list-group-item";
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "form-check-input me-2";
+
+            var taskText = document.createElement("span");
+            taskText.className = "task-text";
+            taskText.innerText = newTask;
+
+            var deleteBtn = document.createElement("button");
+            deleteBtn.className = "delete-btn btn btn-danger ms-2";
+            deleteBtn.innerText = "Delete";
+            deleteBtn.disabled = true;
+
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    taskText.classList.add("checked");
+                    deleteBtn.disabled = false;
+                } else {
+                    taskText.classList.remove("checked");
+                    deleteBtn.disabled = true;
+                }
+            });
+
+            deleteBtn.onclick = () => {
+                item.remove();
+            };
+
+            item.appendChild(checkbox);
+            item.appendChild(taskText);
+            item.appendChild(deleteBtn);
+
+            document.querySelector(".task-box").appendChild(item);
+
+            newtaskinput.value = "";
+            newtaskinput.placeholder = "enter next task...";
+        }
+    }
 
     // Tab switching
     document.getElementById("tasks").addEventListener("click", () => {
@@ -82,5 +69,67 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("timersect").classList.remove("d-none");
     });
 
-    // Timer management (if needed, you can add your existing timer code here)
+    // Timer management
+    const timerButtons = {
+        focus: 25 * 60,
+        shortbreak: 5 * 60,
+        longbreak: 15 * 60
+    };
+    let timerInterval;
+    let currentTime = timerButtons.focus; // default to focus time
+
+    document.getElementById('focus').addEventListener('click', () => setTimer(timerButtons.focus));
+    document.getElementById('shortbreak').addEventListener('click', () => setTimer(timerButtons.shortbreak));
+    document.getElementById('longbreak').addEventListener('click', () => setTimer(timerButtons.longbreak));
+    document.getElementById('start').addEventListener('click', () => startTimer());
+    document.getElementById('stop').addEventListener('click', () => stopTimer());
+    document.getElementById('restart').addEventListener('click', () => restartTimer());
+
+    function setTimer(duration) {
+        currentTime = duration;
+        displayTime();
+        stopTimer();
+    }
+
+    function startTimer() {
+        let timer = currentTime, minutes, seconds;
+        timerInterval = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            document.getElementById('time-left').textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                clearInterval(timerInterval);
+            } else {
+                currentTime = timer;
+            }
+        }, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function restartTimer() {
+        stopTimer();
+        currentTime = timerButtons.focus; // Resetting to default focus time
+        displayTime();
+    }
+    
+
+    function displayTime() {
+        let minutes = parseInt(currentTime / 60, 10);
+        let seconds = parseInt(currentTime % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById('time-left').textContent = minutes + ":" + seconds;
+    }
+
+    displayTime(); // Initial display of the default time
 });

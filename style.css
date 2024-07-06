@@ -158,3 +158,9 @@ html, body {
 #stop:hover {
     background-color: #e57373;
 }
+
+.timer-countdown {
+    /* Adjust properties to ensure visibility */
+    visibility: visible;
+    /* Add other necessary properties like display or position */
+}
