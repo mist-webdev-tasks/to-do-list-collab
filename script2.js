@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelector(".task-box").appendChild(item);
 
             newtaskinput.value = "";
-            // Add task to All and Pending tabs initially
             document.getElementById('all').click(); 
         }
     }
@@ -100,8 +99,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         longbreak: 30 * 60
     };
     let timerInterval;
-    let currentTime = timerButtons.focus; // default to focus time
-    let currentMode = 'focus'; // keep track of the current mode
+    let currentTime = timerButtons.focus; 
+    let currentMode = 'focus'; 
 
     document.getElementById('focus').addEventListener('click', () => setTimer(timerButtons.focus, 'focus'));
     document.getElementById('shortbreak').addEventListener('click', () => setTimer(timerButtons.shortbreak, 'shortbreak'));
@@ -112,13 +111,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function setTimer(duration, mode) {
         currentTime = duration;
-        currentMode = mode; // update the current mode
+        currentMode = mode; 
         displayTime();
         stopTimer();
     }
 
     function startTimer() {
-        stopTimer(); // Clear any existing timer before starting a new one
+        stopTimer(); 
         timerInterval = setInterval(() => {
             let minutes = parseInt(currentTime / 60, 10);
             let seconds = parseInt(currentTime % 60, 10);
@@ -140,7 +139,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function restartTimer() {
         stopTimer();
-        currentTime = timerButtons[currentMode]; // Reset to the current mode's time
+        currentTime = timerButtons[currentMode]; 
         displayTime();
     }
 
@@ -154,5 +153,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('time-left').textContent = minutes + ":" + seconds;
     }
 
-    displayTime(); // Initial display of the default time
+    displayTime(); 
 });
