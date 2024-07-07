@@ -1,0 +1,210 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #004d40;
+    
+}
+body {
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Lato','Roboto',sans-serif;
+    background: rgb(215,248,242,1.0);
+background: linear-gradient(270deg, rgba(215,248,242,1) 5%, rgba(133,242,222,1) 30%, 
+rgba(78,239,211,1) 60%, rgba(42,184,158,1) 90%);
+}
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    padding: 20px;
+}
+.card{
+    width: 100%;
+    max-width: 800px;
+    min-width: 400px;
+}
+.card-body{
+    background: rgb(215,248,242,1.0);
+background: linear-gradient(90deg, rgba(215,248,242,1) 5%, rgba(133,242,222,1) 30%, 
+rgba(78,239,211,1) 60%, rgba(42,184,158,1) 90%);;
+}
+.nav-link.active.nav-underline{
+    border-bottom: 2px solid #007bff;
+}
+h1{
+    font-family: 'Grandstander',sans-serif;
+}
+.card-title{
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#maintab .btn{
+    margin: 0.5rem;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+#maintab .btn:hover{
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+#tasks, #timer{
+    font-size: large;
+}
+#timersect{
+   display: none; 
+} 
+
+#tasksect.active, #timersect.active{
+    display: block;
+ }
+#newtaskdiv .d-flex{
+    display: flex;
+    align-items: center;
+ }
+#newtaskdiv .form-label{
+    font-weight: bold;
+    color: #00796b;
+}
+#newtaskdiv .form-control{
+    flex:1;
+}
+#newtask{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+#newtasklabel{
+    color: #004d40;
+}
+#newtaskbutton{
+    flex-shrink: 0;
+    background-color: #88C999;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+#newtaskbutton:hover {
+    background-color: #6FAF80;
+    transform: scale(1.05);
+}
+#tasktab button, #timertab button{
+    background-color: #6BB1B6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+#tasktab button:hover, #timertab button:hover {
+    background-color: #5398A0;
+    transform: scale(1.05);
+}
+.list-group-item{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    /*changed*/
+    position: relative;
+}
+.list-group-item .task-text{
+    flex: 1;
+    overflow-wrap: break-word;
+}
+.list-group-item .delete-btn{
+    background-color: #e57373;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 225px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /*changed*/
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    bottom: 10%;
+    transform: translateV(-50%);
+
+}
+.list-group-item:hover{
+    background-color: #f1f1f1;
+}
+
+.list-group-item .delete-btn:hover{
+    background-color: #d32f2f;
+}
+/*changed*/
+.checked{
+    text-decoration: line-through;
+    color: #757575;
+}
+#countdown{
+    font-size: 2rem;
+    font-weight: blod;
+    color: #00796b;
+}
+#timercontrol .btn {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+#timercontrol .btn:hover {
+   
+    transform: scale(1.05);
+}
+#start {
+    background-color: #81C784; 
+}
+#start:hover {
+    background-color: #66BB6A; 
+}
+
+#stop {
+    background-color: #EF9A9A; 
+}
+#stop:hover {
+    background-color: #E57373; 
+}
+
+#restart {
+    background-color: #FFD180; 
+}
+
+#restart:hover {
+    background-color: #FFAB40; 
+}
+/*changed*/
+.timer-countdown{
+    visibility: visible;
+}
