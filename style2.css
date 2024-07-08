@@ -13,14 +13,19 @@ html, body{
     color: #004d40;
     
 }
+
 body {
-    padding: 0;
+ 
     min-height: 100vh;
     font-family: 'Lato','Roboto',sans-serif;
-    background: rgb(215,248,242,1.0);
-background: linear-gradient(270deg, rgba(215,248,242,1) 5%, rgba(133,242,222,1) 30%, 
-rgba(78,239,211,1) 60%, rgba(42,184,158,1) 90%);
+    background-image: url("https://studywithme.io/aesthetic-pomodoro-timer/c629a813b3561cfa40dd.jpg");
+    background-position: center;
+    background-size:cover;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #e0e0e0;
 }
+    
 .container{
     display:flex;
     justify-content: center;
@@ -28,16 +33,18 @@ rgba(78,239,211,1) 60%, rgba(42,184,158,1) 90%);
     width: 100%;
     max-width: none;
     padding: 20px;
+    
 }
 .card{
     width: 100%;
     max-width: 800px;
     min-width: 400px;
-}
-.card-body{
-    background: rgb(215,248,242,1.0);
-background: linear-gradient(90deg, rgba(215,248,242,1) 5%, rgba(133,242,222,1) 30%, 
-rgba(78,239,211,1) 60%, rgba(42,184,158,1) 90%);;
+    background: linear-gradient(135deg, rgba(21,20,59,0.8) 0%, rgba(33,33,99,0.8) 50%, rgba(70,130,180,0.8) 100%);
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
 }
 .nav-link.active.nav-underline{
     border-bottom: 2px solid #007bff;
@@ -53,7 +60,7 @@ h1{
 #maintab .btn{
     margin: 0.5rem;
     background-color: #00796b;
-    color: white;
+    color: #e0e0e0;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -80,7 +87,7 @@ h1{
  }
 #newtaskdiv .form-label{
     font-weight: bold;
-    color: #00796b;
+    
 }
 #newtaskdiv .form-control{
     flex:1;
@@ -88,14 +95,13 @@ h1{
 #newtask{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    background-color: #e0e0e0;
 }
-#newtasklabel{
-    color: #004d40;
-}
+
 #newtaskbutton{
     flex-shrink: 0;
     background-color: #88C999;
-    color: white;
+    color: #e0e0e0;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -108,7 +114,7 @@ h1{
 }
 #tasktab button, #timertab button{
     background-color: #6BB1B6;
-    color: white;
+    color: #e0e0e0;
     border: none;
     padding: 10px 20px;
     margin: 0.5rem;
@@ -138,7 +144,7 @@ h1{
 }
 .list-group-item .delete-btn{
     background-color: #e57373;
-    color: white;
+    color: #e0e0e0;
     border: none;
     padding: 5px 10px;
     margin-left: 225px;
@@ -171,7 +177,7 @@ h1{
     color: #00796b;
 }
 #timercontrol .btn {
-    color: white;
+    color: #e0e0e0;
     border: none;
     padding: 10px 20px;
     margin: 0.5rem;
@@ -208,3 +214,213 @@ h1{
 .timer-countdown{
     visibility: visible;
 }
+
+
+/*header styles*/
+header {
+    background-color: #15143b5f;
+    color: #e0e0e0;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Grandstander";
+    color: #15143b;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+}
+
+/*Updated colours for aesthetics*/
+#maintab .btn {
+    background-color: #ab7a97; 
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#maintab .btn:hover {
+    background-color: #9c6884; 
+    transform: scale(1.05);
+}
+
+#tasktab button, #timertab button {
+    background-color: #0c447d; 
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#tasktab button:hover, #timertab button:hover {
+    background-color: #0a3b6c;
+    transform: scale(1.05);
+}
+
+#newtaskbutton {
+    background-color: #ab7a97; 
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#newtaskbutton:hover {
+    background-color: #9c6884; 
+    transform: scale(1.05);
+}
+
+#timercontrol .btn {
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#start {
+    background-color: #81C784; 
+}
+#start:hover {
+    background-color: #66BB6A; 
+}
+
+#stop {
+    background-color: #ab7a97; 
+}
+#stop:hover {
+    background-color: #9c6884; 
+}
+
+#restart {
+    background-color: #5e6596; 
+}
+#restart:hover {
+    background-color: #4f5785; 
+}
+
+h1 {
+    font-family: 'Grandstander', sans-serif;
+    color: #ab7a97;
+}
+
+#newtasklabel {
+    font-weight: bold;
+    color: #e0e0e0; 
+}
+
+#countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e0e0e0; 
+}
+
+/*Footer styles*/
+.footer {
+    background-color: #15143b5f;
+    color: #e0e0e0;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.footer .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer .social-icons .icon {
+    color: #e0e0e0;
+    font-size: 20px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.footer .social-icons .icon:hover {
+    color: #ab7a97; /* Hover color */
+}
+
