@@ -27,7 +27,7 @@ body {
 }
     
 .container{
-    display:flex;
+    display:block;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -236,7 +236,7 @@ header .container {
     margin: 0 auto;
 }
 
-.logo {
+.logo, .logo a{
     font-size: 24px;
     font-weight: bold;
     font-family: "Grandstander";
@@ -422,5 +422,23 @@ h1 {
 
 .footer .social-icons .icon:hover {
     color: #ab7a97; /* Hover color */
+}
+
+/* Page Title */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #004d40; /* Adjust as per your theme */
+    margin-bottom: 10px;
+}
+
+/* Page Subtitle */
+.page-subtitle {
+    font-size: 1.2rem;
+    color: #757575; /* Adjust as per your theme */
+    margin-bottom: 20px;
+    max-width: 600px; /* Adjust based on your layout */
+    text-align: center;
+    line-height: 1.5;
 }
 
