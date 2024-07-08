@@ -172,4 +172,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     displayTime(); 
+
+    //toggle icon navbar
+    document.getElementById('menu-icon').addEventListener('click', function() {
+    document.querySelector('nav ul').classList.toggle('active');
+});
+
+
 });
