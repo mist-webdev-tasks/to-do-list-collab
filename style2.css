@@ -19,7 +19,7 @@ body {
     background-image: url("https://studywithme.io/aesthetic-pomodoro-timer/c629a813b3561cfa40dd.jpg");
     background-position: center;
     background-size: cover;
-    padding-top: 60px;
+    padding-top: 120px;
     padding-bottom: 60px;
     color: #e0e0e0;
 }
@@ -31,6 +31,7 @@ body {
     width: 100%;
     max-width: none;
     padding: 20px;
+    margin-top: 80px;
 }
 
 .card {
@@ -470,4 +471,145 @@ h1 {
     font-size: 3.6rem;
     color:#ab7a97;
     display: none;
+}
+
+/* Updated CSS */
+@media (max-width: 768px) {
+    /* Hide the full nav on smaller screens */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #15143b5f;
+        z-index: 999;
+        padding: 10px 0;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        display: block;
+    }
+}
+
+/* Add this at the end of your existing CSS file */
+
+/* Hide nav links by default */
+nav ul {
+    display: none;
+}
+
+/* Show nav links when menu icon is clicked */
+nav ul.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #15143b5f; /* Adjust background color as needed */
+    padding: 10px;
+    position: absolute;
+    top: 60px; /* Height of the header */
+    left: 0;
+    z-index: 999;
+}
+
+nav ul.active li {
+    margin-bottom: 10px;
+}
+
+nav ul.active li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .logo, .logo a {
+        display: inline-block; /* Ensure logo is visible on mobile */
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 100%; /* Position dropdown below header */
+        left: 0;
+        width: 100%;
+        background-color: #15143b5f; /* Adjust background color as needed */
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        z-index: 999;
+    }
+
+    nav ul.active {
+        display: flex; /* Show dropdown when active */
+    }
+
+    #menu-icon {
+        display: block; /* Show menu icon */
+        cursor: pointer;
+    }
+
+    header .container {
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    header nav ul {
+        position: absolute;
+        top: 100%; /* Position dropdown below header */
+        left: 0;
+        width: 100%;
+        background-color: #15143b5f; /* Adjust background color as needed */
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        z-index: 999;
+    }
+
+    header nav ul.active {
+        display: flex; /* Show dropdown when active */
+    }
+}
+
+/* Ensure links are visible on large screens */
+@media (min-width: 769px) {
+    nav ul {
+        display: flex !important; /* Ensure links are visible */
+        justify-content: flex-end;
+        align-items: center;
+        width: auto;
+        position: relative;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-size: 18px;
+    }
 }
