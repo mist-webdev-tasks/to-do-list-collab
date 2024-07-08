@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Timer management
     const timerButtons = {
         focus: 25 * 60,
-        shortbreak: 5 * 60,
+        shortbreak: 1 * 60,
         longbreak: 30 * 60
     };
     let timerInterval;
@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (--currentTime < 0) {
                 clearInterval(timerInterval);
+                playTimerCompleteSound(); // Play sound when timer completes
             }
         }, 1000);
     }
@@ -151,6 +152,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         document.getElementById('time-left').textContent = minutes + ":" + seconds;
+    }
+
+    function playTimerCompleteSound() {
+        let audio = document.getElementById('completionSound');
+        audio.play();
     }
 
     displayTime(); 
