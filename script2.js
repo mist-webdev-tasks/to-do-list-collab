@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Timer management
     const timerButtons = {
         focus: 25 * 60,
-        shortbreak: 1 * 60,
+        shortbreak: 1 * 10,
         longbreak: 30 * 60
     };
     let timerInterval;
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (--currentTime < 0) {
                 clearInterval(timerInterval);
-                playTimerCompleteSound(); // Play sound when timer completes
+                playFullscreenVideo(); // Play fullscreen video when timer completes
             }
         }, 1000);
     }
@@ -154,9 +154,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('time-left').textContent = minutes + ":" + seconds;
     }
 
-    function playTimerCompleteSound() {
-        let audio = document.getElementById('completionSound');
-        audio.play();
+    function playFullscreenVideo() {
+        let video = document.getElementById('fullscreenVideo');
+        video.style.display = 'block';
+
+        // Request fullscreen
+        video.requestFullscreen();
+
+        // Play video
+        video.play();
+
+        // When video ends, exit fullscreen and hide video
+        video.onended = () => {
+            document.exitFullscreen();
+            video.style.display = 'none';
+        };
     }
 
     displayTime(); 
